@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BiBiBa — Learning Game for Toddlers</title>
+<style>
+  :root {
+    --indigo: #5856d6;
+    --pink: #ff2d92;
+    --bg-top: rgba(218, 213, 247, 0.9);
+    --bg-bot: rgba(241, 222, 246, 0.9);
+    --text: #1c1c1e;
+    --muted: #6e6e73;
+    --card: rgba(255, 255, 255, 0.78);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: linear-gradient(180deg, var(--bg-top), var(--bg-bot)); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+  body { padding: 48px 20px 80px; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 48px; }
+  header h1 { font-size: 56px; font-weight: 900; letter-spacing: -1px; background: linear-gradient(90deg, var(--indigo), var(--pink)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  header .tag { font-size: 20px; color: var(--muted); margin-top: 8px; }
+  section { background: var(--card); border-radius: 24px; padding: 32px 28px; margin-bottom: 24px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 24px rgba(88, 86, 214, 0.08); }
+  section h2 { font-size: 28px; font-weight: 800; margin-bottom: 16px; color: var(--indigo); }
+  section h3 { font-size: 18px; font-weight: 700; margin: 20px 0 8px; }
+  section p, section li { font-size: 16px; line-height: 1.6; color: var(--text); margin-bottom: 8px; }
+  section ul { padding-left: 22px; margin-bottom: 12px; }
+  .pill { display: inline-block; background: rgba(88, 86, 214, 0.12); color: var(--indigo); padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+  a { color: var(--indigo); text-decoration: none; font-weight: 600; }
+  a:hover { text-decoration: underline; }
+  footer { text-align: center; color: var(--muted); font-size: 14px; margin-top: 32px; }
+  nav { text-align: center; margin: 24px 0 40px; }
+  nav a { margin: 0 12px; padding: 8px 16px; background: rgba(255,255,255,0.6); border-radius: 999px; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>BiBiBa</h1>
+  <div class="tag">Learning game for toddlers — Letters, Animals, Numbers</div>
+</header>
+
+<nav>
+  <a href="#privacy">Privacy Policy</a>
+  <a href="#support">Support</a>
+  <a href="#about">About</a>
+</nav>
+
+<section id="about">
+  <span class="pill">About</span>
+  <h2>What is BiBiBa?</h2>
+  <p>BiBiBa is an offline educational game designed for children ages 2–4. It teaches letters, numbers, colors, shapes, and animal recognition through a simple drag-and-drop interaction. The app supports three languages (Russian, English, Spanish) with real recorded voice clips by a children's teacher.</p>
+  <p>The app is built for parents who want a safe, ad-free, distraction-free experience for their kids — no third-party advertising networks, no analytics SDKs, no behavioural tracking.</p>
+</section>
+
+<section id="privacy">
+  <span class="pill">Last updated: 2026-06-09</span>
+  <h2>Privacy Policy</h2>
+
+  <h3>The short version</h3>
+  <p>BiBiBa does not collect any personal data from you or your child. No accounts, no advertising, no third-party analytics. Game progress stays on your device (and optionally syncs across your own Apple devices via iCloud).</p>
+
+  <h3>What data we collect</h3>
+  <p><strong>None.</strong> The app has no servers we operate. It does not transmit your child's name, age, photo, voice, location, contacts, or any other personal information to BiBiBa or any third party.</p>
+
+  <h3>What stays on the device</h3>
+  <ul>
+    <li>Game progress (current level per category, lives count, language preference).</li>
+    <li>One-time tutorial-shown flag.</li>
+    <li>Pro purchase status (validated by Apple StoreKit — we never see your Apple ID).</li>
+  </ul>
+
+  <h3>iCloud sync (optional, on by default)</h3>
+  <p>If you are signed into iCloud, the app uses Apple's iCloud Key-Value Store to sync the items above across your devices, so progress made on the iPad shows up on the iPhone. We do not see any of this data — Apple stores it under your private iCloud container, encrypted, scoped to your Apple ID. You can disable it in iOS Settings → Apple ID → iCloud → BiBiBa.</p>
+
+  <h3>Network usage</h3>
+  <p>The app does not require an internet connection to function. All voice clips, images, and game logic are bundled inside the app. The only network usage is Apple's StoreKit purchase verification, which happens through Apple's servers, not ours.</p>
+
+  <h3>Children's privacy (COPPA / GDPR-K)</h3>
+  <p>BiBiBa is designed for children under 13. Because the app collects no personal information, it does not require verifiable parental consent under COPPA. There is no behavioural advertising, no profiling, and no data sharing with third parties.</p>
+
+  <h3>Changes to this policy</h3>
+  <p>If we ever change this policy, we will update the "Last updated" date above and update the version of the app. We currently have no plans to introduce any kind of analytics or tracking.</p>
+
+  <h3>Contact</h3>
+  <p>Questions about privacy: <a href="mailto:ironmind1000@gmail.com?subject=BiBiBa%20Privacy">ironmind1000@gmail.com</a></p>
+</section>
+
+<section id="support">
+  <span class="pill">Support</span>
+  <h2>Need help?</h2>
+
+  <h3>Frequently asked</h3>
+  <p><strong>The voice doesn't play / sounds are quiet.</strong> Make sure the silent switch on your iPhone is off (or media volume is up on iPad). The app uses standard iOS audio routing and respects the system volume.</p>
+  <p><strong>How do I switch language?</strong> Open the parent stats area (long-press the welcome screen) or relaunch the app and pick the language on first launch.</p>
+  <p><strong>My kid ran out of lives.</strong> The free tier allows 20 wrong answers per category before a short cooldown. Pro unlocks unlimited play and removes the cooldown.</p>
+  <p><strong>I purchased Pro on one device, the other still shows free.</strong> Tap "Restore Purchases" in the paywall. Make sure both devices are signed into the same Apple ID.</p>
+  <p><strong>The app crashed.</strong> Please email us — include your iOS version and device model.</p>
+
+  <h3>Contact</h3>
+  <p>Email: <a href="mailto:ironmind1000@gmail.com?subject=BiBiBa%20Support">ironmind1000@gmail.com</a></p>
+  <p>Typical response time: 1–2 business days.</p>
+</section>
+
+<footer>
+  <p>© 2026 Ivan Kurushkin · Made with care for little learners</p>
+</footer>
+
+</div>
+</body>
+</html>
