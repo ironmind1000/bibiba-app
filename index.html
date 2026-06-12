@@ -67,13 +67,13 @@
 
   <h3>What stays on the device</h3>
   <ul>
-    <li>Game progress (current level per category, lives count, language preference).</li>
-    <li>One-time tutorial-shown flag.</li>
+    <li>Game settings (lives count, language preference, one-time tutorial-shown flag).</li>
     <li>Pro purchase status (validated by Apple StoreKit — we never see your Apple ID).</li>
+    <li>Anonymous play statistics (rounds played, correct answers, highest level per category) — these are also the only data synced via iCloud, see below.</li>
   </ul>
 
   <h3>iCloud sync (optional, on by default)</h3>
-  <p>If you are signed into iCloud, the app uses Apple's iCloud Key-Value Store to sync the items above across your devices, so progress made on the iPad shows up on the iPhone. We do not see any of this data — Apple stores it under your private iCloud container, encrypted, scoped to your Apple ID. You can disable it in iOS Settings → Apple ID → iCloud → BiBiBa.</p>
+  <p>If you are signed into iCloud, the app uses Apple's iCloud Key-Value Store to sync the anonymous play statistics across your devices, so the parent dashboard on the iPad shows progress made on the iPhone. Settings and purchase status are not synced this way (purchases follow your Apple ID via App Store "Restore Purchases"). We do not see any of this data — Apple stores it under your private iCloud container, encrypted, scoped to your Apple ID. You can disable it in iOS Settings → Apple ID → iCloud → BiBiBa.</p>
 
   <h3>Network usage</h3>
   <p>The app does not require an internet connection to function. All voice clips, images, and game logic are bundled inside the app. The only network usage is Apple's StoreKit purchase verification, which happens through Apple's servers, not ours.</p>
@@ -94,7 +94,7 @@
 
   <h3>Frequently asked</h3>
   <p><strong>The voice doesn't play / sounds are quiet.</strong> Make sure the silent switch on your iPhone is off (or media volume is up on iPad). The app uses standard iOS audio routing and respects the system volume.</p>
-  <p><strong>How do I switch language?</strong> Open the parent stats area (long-press the welcome screen) or relaunch the app and pick the language on first launch.</p>
+  <p><strong>How do I switch language?</strong> Tap the flag in the top-left corner of the home screen and pick Russian, English or Spanish.</p>
   <p><strong>My kid ran out of lives.</strong> The free tier allows 20 wrong answers per category before a short cooldown. Pro unlocks unlimited play and removes the cooldown.</p>
   <p><strong>I purchased Pro on one device, the other still shows free.</strong> Tap "Restore Purchases" in the paywall. Make sure both devices are signed into the same Apple ID.</p>
   <p><strong>The app crashed.</strong> Please email us — include your iOS version and device model.</p>
