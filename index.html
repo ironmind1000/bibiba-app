@@ -18,9 +18,12 @@
   html, body { background: linear-gradient(180deg, var(--bg-top), var(--bg-bot)); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; min-height: 100vh; -webkit-font-smoothing: antialiased; }
   body { padding: 48px 20px 80px; }
   .wrap { max-width: 720px; margin: 0 auto; }
-  header { text-align: center; margin-bottom: 48px; }
+  header { text-align: center; margin-bottom: 24px; }
   header h1 { font-size: 56px; font-weight: 900; letter-spacing: -1px; background: linear-gradient(90deg, var(--indigo), var(--pink)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   header .tag { font-size: 20px; color: var(--muted); margin-top: 8px; }
+  .langbar { text-align: center; margin: 20px 0 8px; }
+  .langbar button { margin: 0 4px; padding: 7px 16px; border: 0; background: rgba(255,255,255,0.6); border-radius: 999px; font-size: 15px; font-weight: 600; color: var(--muted); cursor: pointer; }
+  .langbar button.active { background: var(--indigo); color: #fff; }
   section { background: var(--card); border-radius: 24px; padding: 32px 28px; margin-bottom: 24px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 24px rgba(88, 86, 214, 0.08); }
   section h2 { font-size: 28px; font-weight: 800; margin-bottom: 16px; color: var(--indigo); }
   section h3 { font-size: 18px; font-weight: 700; margin: 20px 0 8px; }
@@ -30,7 +33,7 @@
   a { color: var(--indigo); text-decoration: none; font-weight: 600; }
   a:hover { text-decoration: underline; }
   footer { text-align: center; color: var(--muted); font-size: 14px; margin-top: 32px; }
-  nav { text-align: center; margin: 24px 0 40px; }
+  nav { text-align: center; margin: 8px 0 40px; }
   nav a { margin: 0 12px; padding: 8px 16px; background: rgba(255,255,255,0.6); border-radius: 999px; font-size: 14px; }
 </style>
 </head>
@@ -39,75 +42,195 @@
 
 <header>
   <h1>BiBiBa</h1>
-  <div class="tag">Learning game for toddlers — Letters, Animals, Numbers</div>
+  <div class="tag" id="tag"></div>
 </header>
 
+<div class="langbar">
+  <button data-lang="en">English</button>
+  <button data-lang="ru">Русский</button>
+  <button data-lang="es">Español</button>
+</div>
+
 <nav>
-  <a href="#privacy">Privacy Policy</a>
-  <a href="#support">Support</a>
-  <a href="#about">About</a>
+  <a href="#privacy" id="nav-privacy"></a>
+  <a href="#support" id="nav-support"></a>
+  <a href="#about" id="nav-about"></a>
 </nav>
 
-<section id="about">
-  <span class="pill">About</span>
-  <h2>What is BiBiBa?</h2>
-  <p>BiBiBa is an offline educational game designed for children ages 2–4. It teaches letters, numbers, colors, shapes, and animal recognition through a simple drag-and-drop interaction. The app supports three languages (Russian, English, Spanish) with real recorded voice clips by a children's teacher.</p>
-  <p>The app is built for parents who want a safe, ad-free, distraction-free experience for their kids — no third-party advertising networks, no analytics SDKs, no behavioural tracking.</p>
-</section>
+<section id="about"></section>
+<section id="privacy"></section>
+<section id="support"></section>
 
-<section id="privacy">
-  <span class="pill">Last updated: 2026-06-09</span>
-  <h2>Privacy Policy</h2>
-
-  <h3>The short version</h3>
-  <p>BiBiBa does not collect any personal data from you or your child. No accounts, no advertising, no third-party analytics. Game progress stays on your device (and optionally syncs across your own Apple devices via iCloud).</p>
-
-  <h3>What data we collect</h3>
-  <p><strong>None.</strong> The app has no servers we operate. It does not transmit your child's name, age, photo, voice, location, contacts, or any other personal information to BiBiBa or any third party.</p>
-
-  <h3>What stays on the device</h3>
-  <ul>
-    <li>Game settings (lives count, language preference, one-time tutorial-shown flag).</li>
-    <li>Pro purchase status (validated by Apple StoreKit — we never see your Apple ID).</li>
-    <li>Anonymous play statistics (rounds played, correct answers, highest level per category) — these are also the only data synced via iCloud, see below.</li>
-  </ul>
-
-  <h3>iCloud sync (optional, on by default)</h3>
-  <p>If you are signed into iCloud, the app uses Apple's iCloud Key-Value Store to sync the anonymous play statistics across your devices, so the parent dashboard on the iPad shows progress made on the iPhone. Settings and purchase status are not synced this way (purchases follow your Apple ID via App Store "Restore Purchases"). We do not see any of this data — Apple stores it under your private iCloud container, encrypted, scoped to your Apple ID. You can disable it in iOS Settings → Apple ID → iCloud → BiBiBa.</p>
-
-  <h3>Network usage</h3>
-  <p>The app does not require an internet connection to function. All voice clips, images, and game logic are bundled inside the app. The only network usage is Apple's StoreKit purchase verification, which happens through Apple's servers, not ours.</p>
-
-  <h3>Children's privacy (COPPA / GDPR-K)</h3>
-  <p>BiBiBa is designed for children under 13. Because the app collects no personal information, it does not require verifiable parental consent under COPPA. There is no behavioural advertising, no profiling, and no data sharing with third parties.</p>
-
-  <h3>Changes to this policy</h3>
-  <p>If we ever change this policy, we will update the "Last updated" date above and update the version of the app. We currently have no plans to introduce any kind of analytics or tracking.</p>
-
-  <h3>Contact</h3>
-  <p>Questions about privacy: <a href="mailto:ironmind1000@gmail.com?subject=BiBiBa%20Privacy">ironmind1000@gmail.com</a></p>
-</section>
-
-<section id="support">
-  <span class="pill">Support</span>
-  <h2>Need help?</h2>
-
-  <h3>Frequently asked</h3>
-  <p><strong>The voice doesn't play / sounds are quiet.</strong> Make sure the silent switch on your iPhone is off (or media volume is up on iPad). The app uses standard iOS audio routing and respects the system volume.</p>
-  <p><strong>How do I switch language?</strong> Tap the flag in the top-left corner of the home screen and pick Russian, English or Spanish.</p>
-  <p><strong>My kid ran out of lives.</strong> The free tier allows 20 wrong answers per category before a short cooldown. Pro unlocks unlimited play and removes the cooldown.</p>
-  <p><strong>I purchased Pro on one device, the other still shows free.</strong> Tap "Restore Purchases" in the paywall. Make sure both devices are signed into the same Apple ID.</p>
-  <p><strong>The app crashed.</strong> Please email us — include your iOS version and device model.</p>
-
-  <h3>Contact</h3>
-  <p>Email: <a href="mailto:ironmind1000@gmail.com?subject=BiBiBa%20Support">ironmind1000@gmail.com</a></p>
-  <p>Typical response time: 1–2 business days.</p>
-</section>
-
-<footer>
-  <p>© 2026 Ivan Kurushkin · Made with care for little learners</p>
-</footer>
+<footer id="footer"></footer>
 
 </div>
+
+<script>
+const I18N = {
+  en: {
+    tag: "Learning game for toddlers — Letters, Animals, Numbers",
+    navPrivacy: "Privacy Policy", navSupport: "Support", navAbout: "About",
+    about: `
+      <span class="pill">About</span>
+      <h2>What is BiBiBa?</h2>
+      <p>BiBiBa is an offline educational game designed for children ages 2–4. It teaches letters, numbers, colors, shapes, and animal recognition through a simple drag-and-drop interaction. The app supports three languages (Russian, English, Spanish) with real recorded voice clips by a children's teacher.</p>
+      <p>The app is built for parents who want a safe, ad-free, distraction-free experience for their kids — no third-party advertising networks, no analytics SDKs, no behavioural tracking.</p>`,
+    privacy: `
+      <span class="pill">Last updated: 2026-06-11</span>
+      <h2>Privacy Policy</h2>
+      <h3>The short version</h3>
+      <p>BiBiBa does not collect any personal data from you or your child. No accounts, no advertising, no third-party analytics. Game progress stays on your device (and optionally syncs across your own Apple devices via iCloud).</p>
+      <h3>What data we collect</h3>
+      <p><strong>None.</strong> The app has no servers we operate. It does not transmit your child's name, age, photo, voice, location, contacts, or any other personal information to BiBiBa or any third party.</p>
+      <h3>What stays on the device</h3>
+      <ul>
+        <li>Game settings (lives count, language preference, one-time tutorial-shown flag).</li>
+        <li>Pro purchase status (validated by Apple StoreKit — we never see your Apple ID).</li>
+        <li>Anonymous play statistics (rounds played, correct answers, highest level per category) — these are also the only data synced via iCloud, see below.</li>
+      </ul>
+      <h3>iCloud sync (optional, on by default)</h3>
+      <p>If you are signed into iCloud, the app uses Apple's iCloud Key-Value Store to sync the anonymous play statistics across your devices, so the parent dashboard on the iPad shows progress made on the iPhone. Settings and purchase status are not synced this way (purchases follow your Apple ID via App Store "Restore Purchases"). We do not see any of this data — Apple stores it under your private iCloud container, encrypted, scoped to your Apple ID. You can disable it in iOS Settings → Apple ID → iCloud → BiBiBa.</p>
+      <h3>Network usage</h3>
+      <p>The app does not require an internet connection to function. All voice clips, images, and game logic are bundled inside the app. The only network usage is Apple's StoreKit purchase verification, which happens through Apple's servers, not ours.</p>
+      <h3>Children's privacy (COPPA / GDPR-K)</h3>
+      <p>BiBiBa is designed for children under 13. Because the app collects no personal information, it does not require verifiable parental consent under COPPA. There is no behavioural advertising, no profiling, and no data sharing with third parties.</p>
+      <h3>Changes to this policy</h3>
+      <p>If we ever change this policy, we will update the "Last updated" date above and update the version of the app. We currently have no plans to introduce any kind of analytics or tracking.</p>
+      <h3>Contact</h3>
+      <p>Questions about privacy: <a href="mailto:ironmind1000@gmail.com?subject=BiBiBa%20Privacy">ironmind1000@gmail.com</a></p>`,
+    support: `
+      <span class="pill">Support</span>
+      <h2>Need help?</h2>
+      <h3>Frequently asked</h3>
+      <p><strong>The voice doesn't play / sounds are quiet.</strong> Make sure the silent switch on your iPhone is off (or media volume is up on iPad). The app uses standard iOS audio routing and respects the system volume.</p>
+      <p><strong>How do I switch language?</strong> Tap the flag in the top-left corner of the home screen and pick Russian, English or Spanish.</p>
+      <p><strong>My kid ran out of lives.</strong> The free tier allows 20 wrong answers per category before a short cooldown. Pro unlocks unlimited play and removes the cooldown.</p>
+      <p><strong>I purchased Pro on one device, the other still shows free.</strong> Tap "Restore Purchases" in the paywall. Make sure both devices are signed into the same Apple ID.</p>
+      <p><strong>The app crashed.</strong> Please email us — include your iOS version and device model.</p>
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:ironmind1000@gmail.com?subject=BiBiBa%20Support">ironmind1000@gmail.com</a></p>
+      <p>Typical response time: 1–2 business days.</p>`,
+    footer: "© 2026 Ivan Kurushkin · Made with care for little learners",
+  },
+  ru: {
+    tag: "Обучающая игра для малышей — буквы, животные, цифры",
+    navPrivacy: "Конфиденциальность", navSupport: "Поддержка", navAbout: "О приложении",
+    about: `
+      <span class="pill">О приложении</span>
+      <h2>Что такое BiBiBa?</h2>
+      <p>BiBiBa — офлайн обучающая игра для детей 2–4 лет. Она учит буквам, цифрам, цветам, формам и распознаванию животных через простое перетаскивание. Приложение поддерживает три языка (русский, английский, испанский) с настоящими записанными голосами детского педагога.</p>
+      <p>Приложение создано для родителей, которым нужна безопасная среда без рекламы и отвлекающих факторов: никаких сторонних рекламных сетей, аналитических SDK и поведенческого отслеживания.</p>`,
+    privacy: `
+      <span class="pill">Обновлено: 11.06.2026</span>
+      <h2>Политика конфиденциальности</h2>
+      <h3>Коротко</h3>
+      <p>BiBiBa не собирает никаких персональных данных о вас или вашем ребёнке. Нет аккаунтов, рекламы и сторонней аналитики. Прогресс игры хранится на вашем устройстве (и при желании синхронизируется между вашими устройствами Apple через iCloud).</p>
+      <h3>Какие данные мы собираем</h3>
+      <p><strong>Никаких.</strong> У приложения нет наших серверов. Оно не передаёт имя, возраст, фото, голос, геолокацию, контакты ребёнка или любую другую личную информацию ни нам, ни третьим сторонам.</p>
+      <h3>Что остаётся на устройстве</h3>
+      <ul>
+        <li>Настройки игры (счётчик жизней, выбранный язык, флаг показанного один раз обучения).</li>
+        <li>Статус покупки Pro (проверяется через Apple StoreKit — мы не видим ваш Apple ID).</li>
+        <li>Анонимная игровая статистика (сыграно раундов, правильных ответов, наивысший уровень по категориям) — это единственные данные, синхронизируемые через iCloud, см. ниже.</li>
+      </ul>
+      <h3>Синхронизация iCloud (необязательно, включена по умолчанию)</h3>
+      <p>Если вы вошли в iCloud, приложение использует Apple iCloud Key-Value Store для синхронизации анонимной статистики между вашими устройствами, чтобы родительская панель на iPad показывала прогресс с iPhone. Настройки и статус покупки так не синхронизируются (покупки восстанавливаются через ваш Apple ID кнопкой «Restore Purchases»). Мы не видим эти данные — Apple хранит их в вашем приватном контейнере iCloud, зашифрованными, привязанными к вашему Apple ID. Отключить можно в Настройки iOS → Apple ID → iCloud → BiBiBa.</p>
+      <h3>Использование сети</h3>
+      <p>Для работы приложению не нужен интернет. Все голосовые клипы, изображения и логика игры встроены в приложение. Единственное обращение к сети — проверка покупки через Apple StoreKit, которая идёт через серверы Apple, а не наши.</p>
+      <h3>Конфиденциальность детей (COPPA / GDPR-K)</h3>
+      <p>BiBiBa создано для детей младше 13 лет. Поскольку приложение не собирает персональную информацию, оно не требует проверяемого согласия родителей по COPPA. Нет поведенческой рекламы, профилирования и передачи данных третьим сторонам.</p>
+      <h3>Изменения политики</h3>
+      <p>Если мы когда-либо изменим эту политику, мы обновим дату «Обновлено» выше и версию приложения. Сейчас у нас нет планов вводить какую-либо аналитику или отслеживание.</p>
+      <h3>Контакт</h3>
+      <p>Вопросы о конфиденциальности: <a href="mailto:ironmind1000@gmail.com?subject=BiBiBa%20Privacy">ironmind1000@gmail.com</a></p>`,
+    support: `
+      <span class="pill">Поддержка</span>
+      <h2>Нужна помощь?</h2>
+      <h3>Частые вопросы</h3>
+      <p><strong>Голос не воспроизводится / звук тихий.</strong> Убедитесь, что переключатель «без звука» на iPhone выключен (или громкость медиа на iPad поднята). Приложение использует стандартное аудио iOS и подчиняется системной громкости.</p>
+      <p><strong>Как сменить язык?</strong> Нажмите на флаг в левом верхнем углу главного экрана и выберите русский, английский или испанский.</p>
+      <p><strong>У ребёнка закончились жизни.</strong> В бесплатной версии — 20 ошибок на категорию до короткой паузы. Pro открывает безлимитную игру и убирает паузу.</p>
+      <p><strong>Купил(а) Pro на одном устройстве, на другом всё ещё бесплатно.</strong> Нажмите «Restore Purchases» на экране покупки. Оба устройства должны быть в одном Apple ID.</p>
+      <p><strong>Приложение вылетело.</strong> Напишите нам — укажите версию iOS и модель устройства.</p>
+      <h3>Контакт</h3>
+      <p>Эл. почта: <a href="mailto:ironmind1000@gmail.com?subject=BiBiBa%20Support">ironmind1000@gmail.com</a></p>
+      <p>Обычное время ответа: 1–2 рабочих дня.</p>`,
+    footer: "© 2026 Ivan Kurushkin · Сделано с заботой о маленьких учениках",
+  },
+  es: {
+    tag: "Juego educativo para niños — letras, animales, números",
+    navPrivacy: "Privacidad", navSupport: "Soporte", navAbout: "Acerca de",
+    about: `
+      <span class="pill">Acerca de</span>
+      <h2>¿Qué es BiBiBa?</h2>
+      <p>BiBiBa es un juego educativo sin conexión diseñado para niños de 2 a 4 años. Enseña letras, números, colores, formas y reconocimiento de animales mediante una sencilla interacción de arrastrar y soltar. La app admite tres idiomas (ruso, inglés, español) con voces reales grabadas por una maestra de niños.</p>
+      <p>La app está hecha para padres que quieren una experiencia segura, sin anuncios ni distracciones para sus hijos: sin redes publicitarias de terceros, sin SDK de analítica, sin seguimiento del comportamiento.</p>`,
+    privacy: `
+      <span class="pill">Última actualización: 11/06/2026</span>
+      <h2>Política de Privacidad</h2>
+      <h3>La versión corta</h3>
+      <p>BiBiBa no recopila ningún dato personal tuyo ni de tu hijo. Sin cuentas, sin publicidad, sin analítica de terceros. El progreso del juego permanece en tu dispositivo (y opcionalmente se sincroniza entre tus dispositivos Apple vía iCloud).</p>
+      <h3>Qué datos recopilamos</h3>
+      <p><strong>Ninguno.</strong> La app no tiene servidores operados por nosotros. No transmite el nombre, edad, foto, voz, ubicación, contactos de tu hijo ni ninguna otra información personal a BiBiBa ni a terceros.</p>
+      <h3>Qué permanece en el dispositivo</h3>
+      <ul>
+        <li>Ajustes del juego (contador de vidas, idioma, indicador de tutorial mostrado una vez).</li>
+        <li>Estado de la compra Pro (validado por Apple StoreKit — nunca vemos tu Apple ID).</li>
+        <li>Estadísticas de juego anónimas (rondas jugadas, aciertos, nivel más alto por categoría) — son los únicos datos que se sincronizan vía iCloud, ver abajo.</li>
+      </ul>
+      <h3>Sincronización iCloud (opcional, activada por defecto)</h3>
+      <p>Si has iniciado sesión en iCloud, la app usa el almacén clave-valor de iCloud de Apple para sincronizar las estadísticas anónimas entre tus dispositivos, de modo que el panel para padres en el iPad muestre el progreso hecho en el iPhone. Los ajustes y el estado de compra no se sincronizan así (las compras siguen tu Apple ID mediante «Restaurar compras»). No vemos estos datos — Apple los guarda en tu contenedor privado de iCloud, cifrados, vinculados a tu Apple ID. Puedes desactivarlo en Ajustes de iOS → Apple ID → iCloud → BiBiBa.</p>
+      <h3>Uso de la red</h3>
+      <p>La app no necesita conexión a internet para funcionar. Todos los clips de voz, imágenes y la lógica del juego están incluidos en la app. El único uso de red es la verificación de compra de Apple StoreKit, que ocurre a través de los servidores de Apple, no los nuestros.</p>
+      <h3>Privacidad de los niños (COPPA / GDPR-K)</h3>
+      <p>BiBiBa está diseñada para niños menores de 13 años. Como la app no recopila información personal, no requiere consentimiento parental verificable bajo COPPA. No hay publicidad conductual, ni perfilado, ni intercambio de datos con terceros.</p>
+      <h3>Cambios en esta política</h3>
+      <p>Si alguna vez cambiamos esta política, actualizaremos la fecha de «Última actualización» de arriba y la versión de la app. Actualmente no tenemos planes de introducir ningún tipo de analítica o seguimiento.</p>
+      <h3>Contacto</h3>
+      <p>Preguntas sobre privacidad: <a href="mailto:ironmind1000@gmail.com?subject=BiBiBa%20Privacy">ironmind1000@gmail.com</a></p>`,
+    support: `
+      <span class="pill">Soporte</span>
+      <h2>¿Necesitas ayuda?</h2>
+      <h3>Preguntas frecuentes</h3>
+      <p><strong>La voz no suena / el sonido es bajo.</strong> Asegúrate de que el interruptor de silencio del iPhone esté desactivado (o sube el volumen de medios en el iPad). La app usa el enrutamiento de audio estándar de iOS y respeta el volumen del sistema.</p>
+      <p><strong>¿Cómo cambio de idioma?</strong> Toca la bandera en la esquina superior izquierda de la pantalla de inicio y elige ruso, inglés o español.</p>
+      <p><strong>Mi hijo se quedó sin vidas.</strong> La versión gratuita permite 20 respuestas incorrectas por categoría antes de una breve pausa. Pro desbloquea el juego ilimitado y elimina la pausa.</p>
+      <p><strong>Compré Pro en un dispositivo y el otro sigue gratis.</strong> Toca «Restaurar compras» en la pantalla de compra. Ambos dispositivos deben usar el mismo Apple ID.</p>
+      <p><strong>La app se cerró.</strong> Escríbenos — incluye tu versión de iOS y el modelo del dispositivo.</p>
+      <h3>Contacto</h3>
+      <p>Correo: <a href="mailto:ironmind1000@gmail.com?subject=BiBiBa%20Support">ironmind1000@gmail.com</a></p>
+      <p>Tiempo de respuesta habitual: 1–2 días hábiles.</p>`,
+    footer: "© 2026 Ivan Kurushkin · Hecho con cariño para pequeños estudiantes",
+  },
+};
+
+function applyLang(lang) {
+  const t = I18N[lang] || I18N.en;
+  document.documentElement.lang = lang;
+  document.getElementById("tag").textContent = t.tag;
+  document.getElementById("nav-privacy").textContent = t.navPrivacy;
+  document.getElementById("nav-support").textContent = t.navSupport;
+  document.getElementById("nav-about").textContent = t.navAbout;
+  document.getElementById("about").innerHTML = t.about;
+  document.getElementById("privacy").innerHTML = t.privacy;
+  document.getElementById("support").innerHTML = t.support;
+  document.getElementById("footer").innerHTML = "<p>" + t.footer + "</p>";
+  document.querySelectorAll(".langbar button").forEach(b =>
+    b.classList.toggle("active", b.dataset.lang === lang));
+  try { localStorage.setItem("bibiba-lang", lang); } catch (e) {}
+}
+
+document.querySelectorAll(".langbar button").forEach(b =>
+  b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+// Pick initial language: saved choice → browser language → English.
+let initial = "en";
+try { initial = localStorage.getItem("bibiba-lang") || ""; } catch (e) {}
+if (!initial) {
+  const nav = (navigator.language || "en").slice(0, 2);
+  initial = ["en", "ru", "es"].includes(nav) ? nav : "en";
+}
+applyLang(initial);
+</script>
 </body>
 </html>
